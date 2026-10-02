@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+
+// Importación directa de los archivos en src/assets/
+import amcoLogo from '../assets/amco.webp';
+import robogeniusLogo from '../assets/robogenius.webp';
+import cambridgeLogo from '../assets/cambridge.webp';
+import toeflLogo from '../assets/toefl.webp';
+import delfLogo from '../assets/delf.webp';
+
+const logos = [
+  { name: 'Amco', img: amcoLogo },
+  { name: 'Robo Genius', img: robogeniusLogo },
+  { name: 'Cambridge Assessment English', img: cambridgeLogo },
+  { name: 'ETS TOEFL', img: toeflLogo },
+  { name: 'DELF DALF', img: delfLogo },
+];
+---
+
+<section class="py-16 px-4 bg-white text-center">
+  <div class="max-w-6xl mx-auto">
+    
+    <!-- Título con barra decorativa inferior -->
+    <div class="inline-block relative mb-14">
+      <h3 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tight">
+        Programas y certificaciones
+      </h3>
+      <div class="h-1 w-60 bg-amber-400 mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <!-- Contenedor alineado y responsivo para los logos -->
+    <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14 lg:gap-16">
+      {logos.map((logo) => (
+        <div class="h-30 flex items-center justify-center transition-transform duration-300 hover:scale-110">
+          <Image 
+            src={logo.img} 
+            alt={logo.name} 
+            class="max-h-50 w-auto max-w-[140px] md:max-w-[170px] object-contain block" 
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets';
+import heroBanner from '../assets/banner-hero.webp';
+---
+
+<header class="w-full bg-colegio-navy overflow-hidden">
+  <!-- w-full sin límites de max-w para que cubra todo el ancho de la ventana -->
+  <Image
+    src={heroBanner}
+    alt="25 Años Formando Líderes Integrales en Playa del Carmen - Colegio Inglés"
+    widths={[640, 1080, 1440, 1920]}
+    sizes="100vw"
+    format="webp"
+    quality={100}
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+    class="w-full h-auto block select-none"
+  />
+</header>

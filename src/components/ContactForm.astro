@@ -1,0 +1,294 @@
+---
+import { Image } from 'astro:assets';
+import contactHeroImg from '../assets/contactform.webp';
+---
+
+<section class="relative w-full bg-white overflow-hidden pt-10 md:pt-16 pb-0">
+  <div class="w-full flex flex-col lg:flex-row items-end justify-between relative">
+    
+    <!-- Columna Izquierda: Imagen del campus pegada a la izquierda -->
+    <div class="w-full lg:w-1/2 flex-shrink-0 h-[450px] sm:h-[520px] lg:h-[600px] relative overflow-hidden self-end">
+      <Image 
+        src={contactHeroImg} 
+        alt="Colegio Inglés 25 Años - Campus" 
+        class="w-full h-full object-cover object-top sm:object-center block select-none"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Columna Derecha: Tarjeta Blanca montada con esquina redondeada -->
+    <div class="w-full lg:w-[52%] -mt-12 lg:mt-0 lg:-ml-28 z-20 self-end">
+      <div class="bg-white rounded-tl-[4.5rem] md:rounded-tl-[6rem] shadow-[-20px_-15px_40px_rgba(0,0,0,0.18)] min-h-[480px] lg:min-h-[600px] flex flex-col justify-center px-6 sm:px-12 md:px-16 pt-10 pb-8">
+        
+        <div class="max-w-md mx-auto space-y-6 w-full">
+          
+          <!-- Encabezado del Formulario -->
+          <div class="text-left space-y-1">
+            <h3 class="text-2xl sm:text-3xl lg:text-[2.1rem] font-extrabold text-colegio-cyan tracking-tight leading-tight">
+              ¡Queremos contarte más
+            </h3>
+            <p class="text-2xl sm:text-3xl lg:text-[2.1rem] font-black text-colegio-magenta tracking-tight uppercase leading-tight">
+              de la FAMILIA INGLÉS!
+            </p>
+          </div>
+
+          <!-- Formulario -->
+          <form id="formHeroLanding" class="space-y-5 pt-2" method="POST" action="/api/contacto">
+            
+            <!-- Campos Ocultos para Trazabilidad y Homologación -->
+            <input type="hidden" name="origen" value="landing_25_aniversario" />
+            <input type="hidden" name="id_campus" value="playa" />
+            <input type="hidden" name="mensaje" value="Solicitud de visita / información vía Landing 25 Aniversario" />
+
+            <!-- Campo: Nombre Completo -->
+            <div class="relative flex items-center shadow-sm rounded-full">
+              <span class="absolute left-0 inset-y-0 w-12 sm:w-14 bg-colegio-cyan rounded-l-full flex items-center justify-center text-white pointer-events-none">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                  <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"/>
+                </svg>
+              </span>
+              <input 
+                type="text" 
+                name="nombre_completo" 
+                required 
+                placeholder="Nombre completo" 
+                class="w-full pl-15 sm:pl-16 pr-5 py-3 sm:py-3.5 rounded-full border border-colegio-cyan focus:outline-none focus:ring-2 focus:ring-colegio-cyan/40 text-slate-700 placeholder-colegio-cyan font-medium text-sm sm:text-base transition bg-white"
+              />
+            </div>
+
+            <!-- Campo: Nivel de Interés -->
+            <div class="relative flex items-center shadow-sm rounded-full">
+              <span class="absolute left-0 inset-y-0 w-12 sm:w-14 bg-colegio-cyan rounded-l-full flex items-center justify-center text-white pointer-events-none">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 15.5l-7-3.82V17l7 3.82L19 17v-2.32l-7 3.82z"/>
+                </svg>
+              </span>
+              <select 
+                name="nivel_interes" 
+                required 
+                class="w-full pl-15 sm:pl-16 pr-12 py-3 sm:py-3.5 rounded-full border border-colegio-cyan bg-white focus:outline-none focus:ring-2 focus:ring-colegio-cyan/40 text-colegio-cyan font-medium text-sm sm:text-base appearance-none cursor-pointer"
+              >
+                <option value="" disabled selected>Nivel de interés</option>
+                <option value="maternal" class="text-slate-800">Maternal</option>
+                <option value="kinder" class="text-slate-800">Kinder / Preescolar</option>
+                <option value="primaria" class="text-slate-800">Primaria</option>
+                <option value="secundaria" class="text-slate-800">Secundaria</option>
+                <option value="preparatoria" class="text-slate-800">Preparatoria</option>
+              </select>
+              <span class="absolute right-5 pointer-events-none text-colegio-cyan">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </span>
+            </div>
+
+            <!-- Fila: Correo y Teléfono / WhatsApp -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <!-- Correo -->
+              <div class="relative flex items-center shadow-sm rounded-full">
+                <span class="absolute left-0 inset-y-0 w-11 sm:w-12 bg-colegio-cyan rounded-l-full flex items-center justify-center text-white pointer-events-none">
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                  </svg>
+                </span>
+                <input 
+                  type="email" 
+                  name="correo" 
+                  required 
+                  placeholder="Correo" 
+                  class="w-full pl-14 sm:pl-15 pr-3 py-3 rounded-full border border-colegio-cyan focus:outline-none focus:ring-2 focus:ring-colegio-cyan/40 text-slate-700 placeholder-colegio-cyan font-medium text-sm transition bg-white"
+                />
+              </div>
+
+              <!-- Teléfono / WhatsApp -->
+              <div class="relative flex items-center shadow-sm rounded-full">
+                <span class="absolute left-0 inset-y-0 w-11 sm:w-12 bg-colegio-cyan rounded-l-full flex items-center justify-center text-white pointer-events-none">
+                  <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                </span>
+                <input 
+                  type="tel" 
+                  name="telefono" 
+                  required 
+                  placeholder="Whatsapp" 
+                  class="w-full pl-14 sm:pl-15 pr-3 py-3 rounded-full border border-colegio-cyan focus:outline-none focus:ring-2 focus:ring-colegio-cyan/40 text-slate-700 placeholder-colegio-cyan font-medium text-sm transition bg-white"
+                />
+              </div>
+            </div>
+
+            <!-- Botón de Envío -->
+            <div class="pt-4 text-center">
+              <button 
+                type="submit" 
+                class="w-full sm:w-auto px-10 py-3.5 bg-colegio-cyan hover:bg-[#0092c8] text-white font-extrabold text-base md:text-lg rounded-full shadow-lg hover:shadow-cyan-500/25 transition-all duration-200 transform hover:scale-[1.02] active:scale-95 cursor-pointer"
+              >
+                Quiero agendar mi visita
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal de Respuesta Integrado -->
+<div 
+  id="modal-response" 
+  class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300"
+>
+  <div class="bg-white rounded-3xl max-w-sm w-full p-6 sm:p-8 text-center shadow-2xl transform transition-transform scale-100">
+    <!-- Icono Éxito -->
+    <div id="icon-success" class="w-16 h-16 mx-auto mb-4 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center">
+      <svg class="w-8 h-8 fill-current" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+      </svg>
+    </div>
+
+    <!-- Icono Error -->
+    <div id="icon-error" class="w-16 h-16 mx-auto mb-4 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center hidden">
+      <svg class="w-8 h-8 fill-current" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+      </svg>
+    </div>
+
+    <h4 id="modal-title" class="text-xl font-black text-slate-800 mb-2">¡Registro Exitoso!</h4>
+    <p id="modal-text" class="text-sm text-slate-600 leading-relaxed mb-6">Pronto nos comunicaremos contigo.</p>
+
+    <button 
+      id="btn-close-modal" 
+      type="button" 
+      class="w-full py-2.5 px-6 bg-colegio-cyan hover:bg-[#0092c8] text-white font-bold rounded-full shadow transition"
+    >
+      Aceptar
+    </button>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById("formHeroLanding") as HTMLFormElement;
+
+  const modal = document.getElementById("modal-response");
+  const iconSuccess = document.getElementById("icon-success");
+  const iconError = document.getElementById("icon-error");
+  const modalTitle = document.getElementById("modal-title");
+  const modalText = document.getElementById("modal-text");
+  const btnCloseModal = document.getElementById("btn-close-modal");
+
+  function openModal(title: string, text: string, isError = false) {
+    if (!modal || !modalTitle || !modalText || !iconSuccess || !iconError) return;
+
+    iconSuccess.classList.toggle("hidden", isError);
+    iconError.classList.toggle("hidden", !isError);
+
+    modalTitle.textContent = title;
+    modalText.textContent = text;
+
+    modal.classList.remove("hidden");
+    setTimeout(() => modal.classList.remove("opacity-0"), 10);
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.add("opacity-0");
+    setTimeout(() => modal.classList.add("hidden"), 300);
+  }
+
+  btnCloseModal?.addEventListener("click", closeModal);
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Marca el input con borde rojo si falla la validación
+  function toggleErrorStyle(inputName: string, hasError: boolean) {
+    const input = form.querySelector(`[name="${inputName}"]`) as HTMLElement;
+    if (input) {
+      if (hasError) {
+        input.classList.add("!border-red-500", "ring-2", "ring-red-200");
+        input.classList.remove("border-colegio-cyan");
+      } else {
+        input.classList.remove("!border-red-500", "ring-2", "ring-red-200");
+        input.classList.add("border-colegio-cyan");
+      }
+    }
+  }
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const originalContent = submitBtn.innerHTML;
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const fields = ["nombre_completo", "correo", "telefono", "nivel_interes"];
+      let isValid = true;
+
+      fields.forEach((field) => {
+        const value = formData.get(field) as string;
+        let hasError = !value || value.trim() === "";
+
+        if (field === "correo" && value && !emailRegex.test(value)) {
+          hasError = true;
+        }
+        if (field === "telefono" && value && value.replace(/\D/g, "").length < 10) {
+          hasError = true;
+        }
+
+        toggleErrorStyle(field, hasError);
+        if (hasError) isValid = false;
+      });
+
+      if (!isValid) {
+        openModal(
+          "¡Casi listo!",
+          "Por favor revisa los campos marcados en rojo para continuar.",
+          true
+        );
+        return;
+      }
+
+      try {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <div class="flex items-center justify-center">
+            <svg class="animate-spin h-5 w-5 text-white mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Enviando...
+          </div>
+        `;
+
+        const response = await fetch("/api/contacto", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (response.ok) {
+          openModal(
+            "¡Registro Exitoso!",
+            "Gracias por interesarte en Colegio Inglés. Pronto nos comunicaremos contigo."
+          );
+          form.reset();
+        } else {
+          throw new Error();
+        }
+      } catch {
+        openModal(
+          "Hubo un detalle",
+          "No pudimos enviar tu información. Por favor, intenta de nuevo más tarde.",
+          true
+        );
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalContent;
+      }
+    });
+  }
+</script>

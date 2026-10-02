@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets';
+import kid1 from '../assets/kid1.webp';
+import kid2 from '../assets/kid2.webp';
+---
+
+<section class="py-16 px-4 bg-white overflow-hidden">
+  <div class="max-w-5xl mx-auto">
+    <!-- Título de sección -->
+    <h2 class="text-3xl md:text-5xl font-black text-slate-900 text-center mb-16 tracking-tight">
+      Formación integral
+    </h2>
+
+    <!-- Contenedor de las dos columnas de alumnos y badges -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-center relative">
+      
+      <!-- Columna 1: Niño (Trilingües / Inteligencia emocional) -->
+      <div class="relative flex flex-col items-center">
+     
+
+        <!-- Imagen del alumno -->
+        <Image 
+          src={kid1} 
+          alt="Alumno Colegio Inglés" 
+          class="relative z-10 w-60 sm:w-90 h-auto object-contain select-none"
+        />
+
+        <!-- Badge Trilingües -->
+        <div class="absolute top-24 -left-2 sm:-left-6 z-20 bg-white border border-slate-100 px-5 py-2.5 rounded-full shadow-lg text-center cursor-default transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-105 hover:shadow-xl hover:border-colegio-blue/30">
+          <p class="font-extrabold text-colegio-navy text-base sm:text-lg leading-tight">Trilingües</p>
+          <p class="text-xs text-colegio-magenta font-bold">inglés, español y francés</p>
+        </div>
+
+        <!-- Badge Inteligencia Emocional -->
+        <div class="absolute -bottom-4 -left-2 sm:-left-4 z-20 bg-white border border-slate-100 px-5 py-2.5 rounded-full shadow-lg text-center cursor-default transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-105 hover:shadow-xl hover:border-colegio-blue/30">
+          <p class="font-extrabold text-colegio-navy text-sm sm:text-base leading-tight">Inteligencia emocional</p>
+          <p class="text-xs text-colegio-magenta font-bold">para niños felices y seguros</p>
+        </div>
+      </div>
+
+      <!-- Columna 2: Niña (Deportistas / Educación financiera) -->
+      <div class="relative flex flex-col items-center mt-10 md:mt-0">
+      
+        <!-- Imagen de la alumna -->
+        <Image 
+          src={kid2} 
+          alt="Alumna Colegio Inglés Deportista" 
+          class="relative z-10 w-60 sm:w-90 h-auto object-contain select-none"
+        />
+
+        <!-- Badge Deportistas -->
+        <div class="absolute top-16 -right-2 sm:-right-4 z-20 bg-white border border-slate-100 px-6 py-2.5 rounded-full shadow-lg text-center cursor-default transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-105 hover:shadow-xl hover:border-colegio-blue/30">
+          <p class="font-extrabold text-colegio-navy text-base sm:text-lg leading-tight">Deportistas</p>
+          <p class="text-xs text-colegio-magenta font-bold">formados para el éxito</p>
+        </div>
+
+        <!-- Badge Educación Financiera -->
+        <div class="absolute bottom-6 -right-2 sm:-right-6 z-20 bg-white border border-slate-100 px-6 py-2.5 rounded-full shadow-lg text-center cursor-default transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-105 hover:shadow-xl hover:border-colegio-blue/30">
+          <p class="font-extrabold text-colegio-navy text-sm sm:text-base leading-tight">Educación financiera</p>
+          <p class="text-xs text-colegio-magenta font-bold">para los líderes del futuro</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

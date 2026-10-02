@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import waButtonImg from '../assets/wabutton.webp';
+
+const whatsappNumber = "529842672899"; // Reemplaza si requieres otro número
+const whatsappMessage = encodeURIComponent("¡Hola! Me gustaría agendar una visita al Colegio Inglés.");
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+---
+
+<section class="py-10 px-4 text-center bg-white">
+  <div class="max-w-4xl mx-auto space-y-6">
+    <!-- Texto de la promoción -->
+    <p class="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 leading-snug tracking-tight">
+      Inscripción sin costo, pagando únicamente las cuotas correspondientes. 
+      <span class="text-colegio-magenta block sm:inline font-black">Válido hasta el 15 de octubre.</span>
+    </p>
+
+    <!-- Fila de CTA -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-3">
+      <span class="text-3xl sm:text-4xl font-black text-colegio-magenta tracking-tight">
+        Agenda tu visita
+      </span>
+
+      <!-- Enlace con la imagen del botón de WhatsApp -->
+      <a 
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block transition-transform duration-200 hover:scale-105 active:scale-95 drop-shadow-md hover:drop-shadow-lg"
+        aria-label="Escríbenos en WhatsApp para agendar tu visita"
+      >
+        <Image 
+          src={waButtonImg} 
+          alt="Escríbenos en WhatsApp" 
+          class="h-12 sm:h-25 w-auto object-contain block"
+          loading="eager"
+        />
+      </a>
+    </div>
+  </div>
+</section>

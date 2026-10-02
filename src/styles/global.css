@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --color-colegio-navy: #0B1536;
+  --color-colegio-blue: #0072CE;
+  --color-colegio-cyan: #00A3E0;
+  --color-colegio-magenta: #E40046;
+  --color-colegio-green: #25D366;
+  --color-colegio-light-blue: #E8F4FA;
+}
