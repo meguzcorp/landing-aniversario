@@ -1,9 +1,10 @@
 ---
-// Si guardas tu video en public/videos/colegio-ingles.mp4:
-const videoSrc = "/videos/colegio-ingles.mp4";
+// Pega aquí el enlace público completo del video de Facebook:
+const fbPostUrl = "https://www.facebook.com/colegioinglesplaya/videos/TU_ID_DE_VIDEO/";
 
-// Opcional: una imagen de portada antes de reproducir (si tienes una captura en public/):
-// const posterSrc = "/images/video-cover.jpg";
+// Generamos el endpoint seguro del reproductor de Facebook
+const encodedUrl = encodeURIComponent(fbPostUrl);
+const fbIframeSrc = `https://www.facebook.com/plugins/video.php?height=314&href=${encodedUrl}&show_text=false&width=560&t=0`;
 ---
 
 <section class="py-16 px-4 bg-white text-center">
@@ -19,17 +20,9 @@ const videoSrc = "/videos/colegio-ingles.mp4";
       </p>
     </div>
 
-    <!-- Contenedor del Video -->
+    <!-- Contenedor responsivo del Video -->
     <div class="w-full aspect-video max-w-3xl mx-auto bg-slate-950 rounded-2xl shadow-2xl overflow-hidden border border-slate-100 relative">
-      <video
-        controls
-        preload="metadata"
-        playsinline
-        class="w-full h-full object-cover rounded-2xl"
-      >
-        <source src={videoSrc} type="video/mp4" />
-        Tu navegador no soporta la reproducción de video HTML5.
-      </video>
+     <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1590424179296715%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
     </div>
 
   </div>
