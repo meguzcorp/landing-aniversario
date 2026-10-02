@@ -1,10 +1,8 @@
 ---
-// Pega aquí el enlace público completo del video de Facebook:
-const fbPostUrl = "https://www.facebook.com/colegioinglesplaya/videos/TU_ID_DE_VIDEO/";
-
-// Generamos el endpoint seguro del reproductor de Facebook
-const encodedUrl = encodeURIComponent(fbPostUrl);
-const fbIframeSrc = `https://www.facebook.com/plugins/video.php?height=314&href=${encodedUrl}&show_text=false&width=560&t=0`;
+// Video Reel de Facebook oficial
+const fbReelUrl = encodeURIComponent("https://www.facebook.com/reel/1590424179296715/");
+// Usamos el plugin oficial de Meta adaptativo
+const fbIframeSrc = `https://www.facebook.com/plugins/video.php?href=${fbReelUrl}&show_text=false&t=0`;
 ---
 
 <section class="py-16 px-4 bg-white text-center">
@@ -20,9 +18,20 @@ const fbIframeSrc = `https://www.facebook.com/plugins/video.php?height=314&href=
       </p>
     </div>
 
-    <!-- Contenedor responsivo del Video -->
-    <div class="w-full aspect-video max-w-3xl mx-auto bg-slate-950 rounded-2xl shadow-2xl overflow-hidden border border-slate-100 relative">
-     <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1590424179296715%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+    <!-- Contenedor Responsivo ajustado al reproductor -->
+    <div class="w-full max-w-2xl mx-auto bg-slate-950 rounded-2xl shadow-2xl overflow-hidden border border-slate-100 relative aspect-video flex items-center justify-center">
+      <iframe 
+        src={fbIframeSrc} 
+        class="w-full h-full border-0"
+        style="border:none; overflow:hidden;" 
+        scrolling="no" 
+        frameborder="0" 
+        allowfullscreen="true" 
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        loading="lazy"
+        title="Video Institucional Colegio Inglés"
+      >
+      </iframe>
     </div>
 
   </div>
