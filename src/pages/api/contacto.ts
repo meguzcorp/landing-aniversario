@@ -14,6 +14,8 @@ export const POST: APIRoute = async ({ request }) => {
     const nivel = data.get('nivel_interes')?.toString().trim() || null;
     const mensaje = data.get('mensaje')?.toString().trim() || 'Solicitud de visita vía Landing 25 Aniversario';
 
+    
+
     // Campus y origen (vienen en hidden del form o con fallback)
     const origen = data.get('origen')?.toString().trim() || 'landing_25_aniversario';
     const id_campus = Number(data.get('id_campus')) || 1; // 1: Playa del Carmen
@@ -76,6 +78,7 @@ export const POST: APIRoute = async ({ request }) => {
     // 2. ENVÍO DE CORREO DE NOTIFICACIÓN (Nodemailer)
     const smtpUser = import.meta.env.SMTP_USER;
     const smtpPass = import.meta.env.SMTP_PASS;
+
 
     if (smtpUser && smtpPass) {
       try {
